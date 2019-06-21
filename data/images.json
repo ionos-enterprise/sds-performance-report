@@ -1,270 +1,170 @@
 {
-	"40 CPUs Intel(R)": {
-		"Multiple disks, single process per disk": {
-			"Always register memory": [
-				{
-					"url": "disks-x2-dual_write-iops.svg",
-					"details": "Write iops",
-					"tags": ["Write iops"]
-				},
-				{
-					"url": "disks-x2-dual_read-iops.svg",
-					"details": "Write iops",
-					"tags": ["Read iops"]
-				},
-				{
-					"url": "disks-x2-dual_write-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_write-lat.svg",
-					"details": "Write iops",
-					"tags": ["Write latency"]
-				},
-				{
-					"url": "disks-x2-dual_read-lat.svg",
-					"details": "Write iops",
-					"tags": ["Read latency"]
-				}
-			],
-			"Never register memory": [
-				{
-					"url": "disks-x2-dual_write-iops.svg",
-					"details": "Write iops",
-					"tags": ["Write iops"]
-				},
-				{
-					"url": "disks-x2-dual_read-iops.svg",
-					"details": "Write iops",
-					"tags": ["Read iops"]
-				},
-				{
-					"url": "disks-x2-dual_write-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write latency"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read latency"]
-				}
-			]
-		},
-		"Single disk, multiple Processes": {
-			"Always register memory": [
-				{
-					"url": "disks-x2-dual_write-iops.svg",
-					"details": "Write iops",
-					"tags": ["Write iops"]
-				},
-				{
-					"url": "disks-x2-dual_read-iops.svg",
-					"details": "Write iops",
-					"tags": ["Read iops"]
-				},
-				{
-					"url": "disks-x2-dual_write-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write latency"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read latency"]
-				}
-			],
-			"Never register memory": [
-				{
-					"url": "disks-x2-dual_write-iops.svg",
-					"details": "Write iops",
-					"tags": ["Write iops"]
-				},
-				{
-					"url": "disks-x2-dual_read-iops.svg",
-					"details": "Write iops",
-					"tags": ["Read iops"]
-				},
-				{
-					"url": "disks-x2-dual_write-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write latency"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read latency"]
-				}
-			]
-		}
-	},
-	"64 CPUs AMD Opteron": {
-		"Multiple disks, single process per disk": {
-			"Always register memory": [
-				{
-					"url": "disks-x2-dual_write-iops.svg",
-					"details": "Write iops",
-					"tags": ["Write iops"]
-				},
-				{
-					"url": "disks-x2-dual_read-iops.svg",
-					"details": "Write iops",
-					"tags": ["Read iops"]
-				},
-				{
-					"url": "disks-x2-dual_write-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write latency"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read latency"]
-				}
-			],
-			"Never register memory": [
-				{
-					"url": "disks-x2-dual_write-iops.svg",
-					"details": "Write iops",
-					"tags": ["Write iops"]
-				},
-				{
-					"url": "disks-x2-dual_read-iops.svg",
-					"details": "Write iops",
-					"tags": ["Read iops"]
-				},
-				{
-					"url": "disks-x2-dual_write-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write latency"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read latency"]
-				}
-			]
-		},
-		"Single disk, multiple Processes": {
-			"Always register memory": [
-				{
-					"url": "disks-x2-dual_write-iops.svg",
-					"details": "Write iops",
-					"tags": ["Write iops"]
-				},
-				{
-					"url": "disks-x2-dual_read-iops.svg",
-					"details": "Write iops",
-					"tags": ["Read iops"]
-				},
-				{
-					"url": "disks-x2-dual_write-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write latency"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read latency"]
-				}
-			],
-			"Never register memory": [
-				{
-					"url": "disks-x2-dual_write-iops.svg",
-					"details": "Write iops",
-					"tags": ["Write iops"]
-				},
-				{
-					"url": "disks-x2-dual_read-iops.svg",
-					"details": "Write iops",
-					"tags": ["Read iops"]
-				},
-				{
-					"url": "disks-x2-dual_write-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read bandwidth"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Write latency"]
-				},
-				{
-					"url": "disks-x2-dual_read-bw.svg",
-					"details": "Write iops",
-					"tags": ["Read latency"]
-				}
-			]
-		}
-	}
+    "40 CPUs Intel(R) Xeon(R) Silver 4114 CPU @ 2.20GHz": {
+        "Dual Path": {
+            "Multiple Disks": [
+                {
+                    "url": "disks-x4-dual_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "disks-x4-dual_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "disks-x4-dual_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "disks-x4-dual_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "disks-x4-dual_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "disks-x4-dual_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ],
+            "Multiple Jobs": [
+                {
+                    "url": "jobs-x4-dual_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "jobs-x4-dual_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "jobs-x4-dual_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "jobs-x4-dual_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "jobs-x4-dual_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "jobs-x4-dual_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ]
+        },
+        "Single Path": {
+            "Multiple Disks": [
+                {
+                    "url": "disks-x4-single_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "disks-x4-single_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "disks-x4-single_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "disks-x4-single_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "disks-x4-single_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "disks-x4-single_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ]            
+        }
+    }, 
+    "64 CPUs AMD Opteron(tm) Processor 6282 SE 2.6GHz": {
+        "Dual Path": {
+            "Multiple Disks": [
+                {
+                    "url": "disks-x2-dual_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "disks-x2-dual_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "disks-x2-dual_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "disks-x2-dual_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "disks-x2-dual_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "disks-x2-dual_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ],
+            "Multiple Jobs": [
+                {
+                    "url": "jobs-x2-dual_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "jobs-x2-dual_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "jobs-x2-dual_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "jobs-x2-dual_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "jobs-x2-dual_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "jobs-x2-dual_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ]
+        },
+        "Single Path": {
+            "Multiple Disks": [
+                {
+                    "url": "disks-x2-single_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "disks-x2-single_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "disks-x2-single_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "disks-x2-single_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "disks-x2-single_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "disks-x2-single_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ]            
+        }
+    }
 }

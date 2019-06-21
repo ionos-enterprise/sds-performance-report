@@ -46,19 +46,23 @@ class App {
 	}
 
 	updateElements() {
+		// Get all the selected checkboxes
 		let allSelectedChecks = $('input:checked').toArray();
-		allSelectedChecks = allSelectedChecks.map(e => JSON.parse($(e).attr('data')));
+		allSelectedChecks = allSelectedChecks.map(e => {
+			let data = JSON.parse($(e).attr('data'));
+			data.pathArray = $(e).parents('li').toArray().map(e => $(e).find('> label').text().trim()).reverse();
+			return data;
+		});
 
-		// Get all the selected options
+		// Get the options from all the selected checkboxes
 		let elements = allSelectedChecks.filter(e => e.type === 'option' && Array.isArray(e.value))
-		elements = elements.map(e => e.value);
 
-		// Get all the selected tags
+		// Get the tags from all the selected checkboxes
 		let tags = allSelectedChecks.filter(e => e.type === 'tag')
 		tags = tags.map(e => e.value);
-
+		if (!tags.length) return;
 		// Filter the elements based on the selected tags
-		this.elements = elements.map(x => x.filter(y => tags.indexOf(y.tags[0]) !== -1))
+		this.elements = elements.map(x => ({value: x.value.filter(y => tags.indexOf(y.tags[0]) !== -1), pathArray: x.pathArray}))
 
 		// Render all the selected elements and tags
 		this.renderElements();
@@ -128,7 +132,7 @@ class Templates {
 	static optionsTag(element = '') {
 		return `<li>
 					<label>
-						<input type="checkbox" data='{"type": "tag", "value": "${element}"}'/>${element}
+						<input type="checkbox" data='{"type": "tag", "value": "${element}"}' checked/>${element}
 					</label>
 				</li>`;
 	}
@@ -148,8 +152,10 @@ class Templates {
 	static viewport(elements) {
 		return elements.map(e => {
 			return `<div class="elements">
-						<h2>title</h2>
-						${e.map(e => `
+						<div class="title">
+							${e.pathArray.map(x => `<p>${x}</p>`).join('')}
+						</div>
+						${e.value.map(e => `
 							<img src="/data/images/${e.url}" alt="..." />
 						`).join('')}
 					</div>`;

@@ -1,57 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 :root {
     --primary-color: #003d8f;
     --secondary-color: #0b9dcc;  
-  }
-  
-  body {
-    margin: 0;
-    width: fit-content;
-    min-width: 100%;
-    font-family: "Open Sans Regular", Arial, sans-serif;
-  }
-  
-  header {
-    background: var(--primary-color);
-    margin: 0;
-  }
-  
-  header .logo {
-    width: 100px;
-    padding: 10px 50px;
-  }
-  
-  .container {
-    display: flex;
-    
-  }
+}
 
-  li {
-    list-style: none;
-  }
-  
-  aside {
-    border-right: 1px solid var(--secondary-color);
-    width: 400px;
-  }
+* {
+  font-family: 'Open Sans', sans-serif;
+}
 
-  main {
-    /* width: 5000px; */
-    padding: 20px;
-  }
-  
-  .viewport {
-    display: flex;
-    flex-direction: row;
-    transform-origin: top left;
-  }
+body {
+  margin: 0;
+  width: fit-content;
+  min-width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
 
-  .elements {
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-  }
+header {
+  background: var(--primary-color);
+  margin: 0;
+}
 
-  .elements img {
-    margin-bottom: 10px;
-  }
-  
+header .logo {
+  width: 100px;
+  padding: 10px 50px;
+}
+
+.container {
+  display: flex;
+}
+
+aside {
+  width: 455px;
+}
+
+aside li {
+  list-style: none;
+}
+
+aside .box {
+  border: 1px solid var(--secondary-color);
+  margin: 10px;
+  border-radius: 4px;
+}
+
+aside .box .body {
+  padding: 5px;
+}
+
+aside .box .body > ul {
+  padding-left: 0px;
+  margin-top: 5px;
+}
+
+aside .box h2 {
+  background: var(--secondary-color);
+  color: white;
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+main {
+  padding: 20px;
+}
+
+.viewport {
+  display: flex;
+  flex-direction: row;
+  transform-origin: top left;
+}
+
+.elements {
+  display: flex;
+  flex-direction: column;
+  border-right: 2px dotted lightgray;
+}
+
+.elements:last-of-type {
+  border-right: none;
+}
+
+.elements .title p {
+  text-align: center;
+}
+
+.elements img {
+  margin-bottom: 10px;
+  width: 600px;
+}
