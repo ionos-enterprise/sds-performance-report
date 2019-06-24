@@ -36,10 +36,18 @@ class App {
 		}).join('');
 	}
 
-	// Get the JSON data from the static file on the server
-	getData() {
+	getFiles() {
 		return new Promise((resolve, reject) => {
-			$.getJSON('/data/images.json', function(data) {
+			$.getJSON('/data/files.json', function(data) {
+				resolve(data);
+			})
+		});
+	}
+
+	// Get the JSON data from the static file on the server
+	getData(name) {
+		return new Promise((resolve, reject) => {
+			$.getJSON(`/data/${name}`, function(data) {
 				resolve(data);
 			})
 		});
@@ -73,6 +81,28 @@ class App {
 		$('.viewport').html(HTML);
 	}
 
+	static checkDictionary(key) {
+		if (window.dictionary[key]) {
+			return window.dictionary[key];
+		}
+		return key;
+	}
+
+	updateMeasurment({file, title, details}) {
+		this.getData(file).then(data => {
+			const optionsHTML = this.getOptionsHTML(data);
+			const tagsHTML = this.getTagsHTML(data);
+		
+			$('.options').html(optionsHTML);
+			$('.tags').html(tagsHTML);
+			$('.viewport').html('');
+
+			window.details = details;
+			this.unBindEvents()
+			this.bindEvents();
+		});
+	}
+
 	bindEvents() {
 		// Event Listener for all the checkboxes
 		$('input[type="checkbox"]').click(e => {
@@ -96,34 +126,71 @@ class App {
 		});
 
 		// Increase the size of Viewport
-		$('.inc-viewport').click(e => {
-			this.viewportSize += 0.2;
-			$('.viewport').css('transform', `scale(${this.viewportSize})`);
+		$('.btn-inc-viewport').click(e => {
+			if (this.viewportSize < 5) {
+				this.viewportSize += 0.2;
+				$('.viewport').css('transform', `scale(${this.viewportSize})`);
+				$('.zoom-result').html(`${Math.round(this.viewportSize * 100)}%`);
+			}			
 		});
 
 		// Decrease the size of Viewport
-		$('.dec-viewport').click(e => {
-			this.viewportSize -= 0.2;
-			$('.viewport').css('transform', `scale(${this.viewportSize})`);
+		$('.btn-dec-viewport').click(e => {
+			if (this.viewportSize > 0.3) {
+				this.viewportSize -= 0.2;
+				$('.viewport').css('transform', `scale(${this.viewportSize})`);
+				$('.zoom-result').html(`${Math.round(this.viewportSize * 100)}%`);
+			}
 		});
+		
+		// Print the Viewport if there is at least one chart
+		$('.btn-print').click(e => {
+			if ($(".viewport").html().trim()) {
+				window.print();
+			}
+		});
+
+		$('.measurements').change(e => {
+			this.updateMeasurment(JSON.parse($('.measurements').val()));
+		})
+
+		$('.btn-sidebar').click(e => {
+			if ($("aside").css('display').trim() === 'none') {
+				$("aside").css('display', 'block');
+				$('.btn-sidebar').html('Hide Sidebar');
+			} else {
+				$("aside").css('display', 'none');
+				$('.btn-sidebar').html('Show Sidebar');
+			}
+		});
+
+		$('.btn-details').click(e => {
+			alert(window.details);
+		});
+
+		$($(".options input")[0]).click();
+
 	}
 
 	unBindEvents() {
-
+		$('input[type="checkbox"]').unbind();
+		$('.btn-inc-viewport').unbind();
+		$('.btn-dec-viewport').unbind();
+		$('.btn-print').unbind();
+		$('.measurements').unbind();
+		$('.btn-sidebar').unbind();
+		$('.btn-details').unbind();
 	}
 
 	// Bootstrapper function
 	static start() {
 		const app = new App();
-		app.getData().then(data => {
-			const optionsHTML = app.getOptionsHTML(data);
-			const tagsHTML = app.getTagsHTML(data);
-		
-			$('.options').html(optionsHTML);
-			$('.tags').html(tagsHTML);
-
-			app.bindEvents();
-		});
+		app.getFiles().then(data => {
+			const {files = [], dictionary = {}} = data;
+			window.dictionary = dictionary;
+			$('.measurements').html(files.map(e => Templates.measurment(e)).join(''));
+			app.updateMeasurment(files[0]);
+		})
 	}
 }
 
@@ -137,12 +204,12 @@ class Templates {
 				</li>`;
 	}
 
-	static optionsCheckbox(mergingHTML, element, innerElementsHTML, keys = []) {
+	static optionsCheckbox(mergingHTML, title, innerElementsHTML, element = {}) {
 		return `${mergingHTML}
 				<ul>
 					<li>
 						<label>
-							<input type="checkbox" data='{"type": "option", "value": ${JSON.stringify(keys)}}'/>${element}
+							<input type="checkbox" data='{"type": "option", "value": ${JSON.stringify(element)}}'/>${title}
 						</label>
 						${innerElementsHTML}
 					</li>
@@ -153,13 +220,17 @@ class Templates {
 		return elements.map(e => {
 			return `<div class="elements">
 						<div class="title">
-							${e.pathArray.map(x => `<p>${x}</p>`).join('')}
+							${e.pathArray.map(x => `<p>${App.checkDictionary(x)}</p>`).join('')}
 						</div>
 						${e.value.map(e => `
 							<img src="/data/images/${e.url}" alt="..." />
 						`).join('')}
 					</div>`;
 		}).join('')
+	}
+
+	static measurment(element) {
+		return `<option value='${JSON.stringify(element)}'>${element.title}</option>`;
 	}
 }
 

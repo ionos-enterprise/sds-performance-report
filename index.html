@@ -4,35 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>IBNBD Performance Report</title>
+    <title>IBNBD Performance Evaluation</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
     <header>
         <img class="logo" src="https://www.ionos.de/modules/frontend-skin-thunder/img/components/header/vi-logo.svg" alt="logo" />
+        <span class="header-title">IBNBD Performance Evaluation</span>
     </header>
     <section class="container">
         <aside>
             <div class="box">
-                <h2>Options</h2>
+                <h2>Measurements</h2>
+                <div class="body">
+                    <label>Measurement: </label>
+                    <select class="measurements"></select>
+                    <span class="btn-details">Show Details</span>
+                </div>
+            </div>
+            <div class="box">
+                <h2>Filter</h2>
                 <div class="body options"></div>
             </div>
             <div class="box">
-                <h2>Tags</h2>
+                <h2>Metrics</h2>
                 <div class="body tags"></div>
-            </div>
-            <div class="box">
-                <h2>Settings</h2>
-                <div class="body">
-                    <label>Zoom</label>
-                    <button class="inc-viewport">+</button>
-                    <button class="dec-viewport">-</button>
-                </div>
             </div>
         </aside>
         <main>
             <div class="viewport"></div>
         </main>
+        <div class="setting">
+            <button class="btn btn-inc-viewport">+</button>
+            <span class="zoom-result">100%</span>
+            <button class="btn btn-dec-viewport">-</button>
+            <button class="btn btn-print">Print</button>
+            <button class="btn btn-sidebar">Hide Sidebar</button>
+        </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>

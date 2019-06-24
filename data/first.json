@@ -1,10 +1,11 @@
 {
-    "40 CPUs Intel(R) Xeon(R) Silver 4114 CPU @ 2.20GHz": {
+    "40 CPUs Intel(R) Xeon(R) Silver 4114": {
         "Dual Path": {
             "Multiple Disks": [
                 {
                     "url": "disks-x4-dual_write-iops.svg",
-                    "tags": ["Write IOPS"]
+                    "tags": ["Write IOPS"],
+                    "checked": true
                 },
                 {
                     "url": "disks-x4-dual_read-iops.svg",
@@ -80,10 +81,36 @@
                     "url": "disks-x4-single_read-lat.svg",
                     "tags": ["Mean Read Latency"]
                 }
+            ],
+            "Multiple Jobs": [
+                {
+                    "url": "jobs-x4-single_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "jobs-x4-single_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "jobs-x4-single_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "jobs-x4-single_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "jobs-x4-single_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "jobs-x4-single_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
             ]            
         }
     }, 
-    "64 CPUs AMD Opteron(tm) Processor 6282 SE 2.6GHz": {
+    "64 CPUs AMD Opteron(tm) Processor 6282 SE": {
         "Dual Path": {
             "Multiple Disks": [
                 {
@@ -162,6 +189,32 @@
                 },
                 {
                     "url": "disks-x2-single_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ],
+            "Multiple Jobs": [
+                {
+                    "url": "jobs-x2-single_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "jobs-x2-single_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "jobs-x2-single_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "jobs-x2-single_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "jobs-x2-single_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "jobs-x2-single_read-lat.svg",
                     "tags": ["Mean Read Latency"]
                 }
             ]            

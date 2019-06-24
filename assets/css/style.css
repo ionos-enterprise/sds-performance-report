@@ -11,7 +11,7 @@
 
 body {
   margin: 0;
-  width: fit-content;
+  width: max-content;
   min-width: 100%;
   font-family: 'Open Sans', sans-serif;
 }
@@ -31,7 +31,8 @@ header .logo {
 }
 
 aside {
-  width: 455px;
+  width: 400px;
+  min-width: 400px;
 }
 
 aside li {
@@ -39,7 +40,7 @@ aside li {
 }
 
 aside .box {
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--primary-color);
   margin: 10px;
   border-radius: 4px;
 }
@@ -54,11 +55,11 @@ aside .box .body > ul {
 }
 
 aside .box h2 {
-  background: var(--secondary-color);
+  background: var(--primary-color);
   color: white;
   margin: 0;
   padding: 5px 10px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 main {
@@ -88,4 +89,62 @@ main {
 .elements img {
   margin-bottom: 10px;
   width: 600px;
+}
+
+.zoom-result {
+  margin: 0px 5px;
+  font-weight: 500;
+}
+
+.setting {
+  padding: 5px;
+  border: 1px solid var(--primary-color);
+  margin: 10px;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background: white;
+}
+
+label {
+  font-size: 15px;
+}
+
+.btn {
+  background: var(--primary-color);
+  border: none;
+  color: white;
+  border-radius: 2px;
+  min-width: 20px;
+  font-size: 14px;
+}
+
+.btn-details {
+  color: var(--primary-color);
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.header-title {
+  position: relative;
+  top: -15px;
+  color: white;
+  font-weight: bold;
+  left: 30vw;
+}
+
+@media print {
+  aside {
+    display: none !important;
+  }
+
+  header {
+    display: none;
+  }
+
+  .setting {
+    display: none;
+  }
 }
