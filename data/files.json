@@ -7,7 +7,7 @@
         }
     ],
     "dictionary": {
-        "40 CPUs Intel(R) Xeon(R) Silver 4114": "<b>40 CPUs Intel(R) Xeon(R) Silver 4114 CPU @ 2.20GHz</b><br><i>Mellanox Technologies MT27700 Family [ConnectX-4] 100GBs</i>",
+        "40 CPUs Intel(R) Xeon(R) Silver 4114": "<b>40 CPUs Intel(R) Xeon(R) Silver 4114 CPU @ 2.20GHz</b><br><i>Mellanox Technologies MT27700 Family <br>[ConnectX-4] 100GBs</i>",
         "64 CPUs AMD Opteron(tm) Processor 6282 SE": "<b>64 CPUs AMD Opteron(tm) Processor 6282 SE 2.6GHz</b><br><i>Mellanox Technologies MT26428 <br>[ConnectX VPI PCIe 2.0 5GT/s - IB QDR / 10GigE] (rev b0) 40Gb/s</i>"
     }
 }
