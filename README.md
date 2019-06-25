@@ -1,3 +1,9 @@
+### Test page on a local machine
+```
+Start http server Inside directory the repo is checked out into:
+$python3 -m http.server 8080
+then open http://127.0.0.1:8080 in your browser
+```
 
 
 ### The following files must be created:
