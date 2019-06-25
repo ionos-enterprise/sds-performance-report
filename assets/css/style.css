@@ -75,7 +75,7 @@ main {
 .elements {
   display: flex;
   flex-direction: column;
-  border-right: 2px dotted lightgray;
+  border-right: 1px dotted lightgray;
 }
 
 .elements:last-of-type {
