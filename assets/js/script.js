@@ -88,7 +88,7 @@ class App {
 		return key;
 	}
 
-	updateMeasurment({file, title, details}) {
+	updateMeasurment({file, title, details, preSelected, dictionary}) {
 		this.getData(file).then(data => {
 			const optionsHTML = this.getOptionsHTML(data);
 			const tagsHTML = this.getTagsHTML(data);
@@ -98,8 +98,12 @@ class App {
 			$('.viewport').html('');
 
 			window.details = details;
+			window.preSelects = preSelected;
+			window.dictionary = dictionary;
+
 			this.unBindEvents()
 			this.bindEvents();
+			$(".box-details").slideUp();
 		});
 	}
 
@@ -156,20 +160,38 @@ class App {
 
 		$('.btn-sidebar').click(e => {
 			if ($("aside").css('display').trim() === 'none') {
-				$("aside").css('display', 'block');
+				$("aside").slideDown();
 				$('.btn-sidebar').html('Hide Sidebar');
 			} else {
-				$("aside").css('display', 'none');
+				$("aside").slideUp();
 				$('.btn-sidebar').html('Show Sidebar');
 			}
 		});
 
 		$('.btn-details').click(e => {
-			alert(window.details);
+			if ($(".box-details").css('display').trim() === 'none') {
+				$('.box-details').html(window.details);
+				$(".box-details").slideDown();
+				$('.btn-details').html('Hide Details');
+			} else {
+				$(".box-details").slideUp();
+				$('.btn-details').html('Show Details');
+			}
 		});
+		
+		window.preSelects.forEach(e => {
+			this.preSelectFilters($('aside'), e); //['40 CPUs Intel(R) Xeon(R) Silver 4114', 'Dual Path', 'Multiple Disks']
+		});
+	}
 
-		$($(".options input")[0]).click();
-
+	preSelectFilters (parent, arr) {
+		if (!arr.length) return;
+		if (arr.length === 1) {
+			console.log($(parent).find(`label:contains('${arr[0]}')`).find('> input'))
+			$(parent).find(`label:contains('${arr[0]}')`).find('> input').click();
+		} else {
+			return this.preSelectFilters($(parent).find(`label:contains('${arr.shift()}')`).parents('li')[0], arr)
+		}
 	}
 
 	unBindEvents() {
@@ -186,8 +208,7 @@ class App {
 	static start() {
 		const app = new App();
 		app.getFiles().then(data => {
-			const {files = [], dictionary = {}} = data;
-			window.dictionary = dictionary;
+			const {files = []} = data;
 			$('.measurements').html(files.map(e => Templates.measurment(e)).join(''));
 			app.updateMeasurment(files[0]);
 		})

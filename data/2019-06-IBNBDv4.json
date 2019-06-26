@@ -4,8 +4,7 @@
             "Multiple Disks": [
                 {
                     "url": "2019-06-IBNBDv4/disks-x4-dual_write-iops.svg",
-                    "tags": ["Write IOPS"],
-                    "checked": true
+                    "tags": ["Write IOPS"]
                 },
                 {
                     "url": "2019-06-IBNBDv4/disks-x4-dual_read-iops.svg",
