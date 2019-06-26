@@ -127,6 +127,15 @@ label {
   cursor: pointer;
 }
 
+.box-details {
+  height: 350px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  word-break: break-word;
+  padding: 5px;
+  display: none;
+}
+
 .header-title {
   position: relative;
   top: -15px;
