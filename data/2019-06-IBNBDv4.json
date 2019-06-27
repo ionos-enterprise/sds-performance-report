@@ -1,5 +1,5 @@
 {
-    "40 CPUs Intel(R) Xeon(R) Silver 4114": {
+    "40 Intel Xeon Silver 4114, ConnectX-4 100Gb/s": {
         "Dual Path": {
             "Multiple Disks": [
                 {
@@ -109,7 +109,7 @@
             ]            
         }
     }, 
-    "64 CPUs AMD Opteron(tm) Processor 6282 SE": {
+    "64 AMD Opteron 6282, ConnectX VPI 40Gb/s": {
         "Dual Path": {
             "Multiple Disks": [
                 {
