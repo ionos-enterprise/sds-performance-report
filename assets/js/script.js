@@ -38,7 +38,7 @@ class App {
 
 	getFiles() {
 		return new Promise((resolve, reject) => {
-			$.getJSON('/data/files.json', function(data) {
+			$.getJSON('data/files.json', function(data) {
 				resolve(data);
 			})
 		});
@@ -47,7 +47,7 @@ class App {
 	// Get the JSON data from the static file on the server
 	getData(name) {
 		return new Promise((resolve, reject) => {
-			$.getJSON(`/data/${name}`, function(data) {
+			$.getJSON(`data/${name}`, function(data) {
 				resolve(data);
 			})
 		});
@@ -244,7 +244,7 @@ class Templates {
 							${e.pathArray.map(x => `<p>${App.checkDictionary(x)}</p>`).join('')}
 						</div>
 						${e.value.map(e => `
-							<img src="/data/images/${e.url}" alt="..." />
+							<img src="data/images/${e.url}" alt="..." />
 						`).join('')}
 					</div>`;
 		}).join('')
