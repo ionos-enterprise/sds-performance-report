@@ -68,10 +68,12 @@ class App {
 		// Get the tags from all the selected checkboxes
 		let tags = allSelectedChecks.filter(e => e.type === 'tag')
 		tags = tags.map(e => e.value);
-		if (!tags.length) return;
-		// Filter the elements based on the selected tags
-		this.elements = elements.map(x => ({value: x.value.filter(y => tags.indexOf(y.tags[0]) !== -1), pathArray: x.pathArray}))
-
+		if (!tags.length) {
+			this.elements = [];
+		} else {
+			// Filter the elements based on the selected tags
+			this.elements = elements.map(x => ({value: x.value.filter(y => tags.indexOf(y.tags[0]) !== -1), pathArray: x.pathArray}))
+		}
 		// Render all the selected elements and tags
 		this.renderElements();
 	}
@@ -182,16 +184,14 @@ class App {
 		window.preSelects.forEach(e => {
 			this.preSelectFilters($('aside'), e); //['40 CPUs Intel(R) Xeon(R) Silver 4114', 'Dual Path', 'Multiple Disks']
 		});
-	}
 
-	preSelectFilters (parent, arr) {
-		if (!arr.length) return;
-		if (arr.length === 1) {
-			console.log($(parent).find(`label:contains('${arr[0]}')`).find('> input'))
-			$(parent).find(`label:contains('${arr[0]}')`).find('> input').click();
-		} else {
-			return this.preSelectFilters($(parent).find(`label:contains('${arr.shift()}')`).parents('li')[0], arr)
-		}
+		$('.close-modal').click(() => {
+			this.closeDialog();
+		});
+
+		$('.modal-shade').click(() => {
+			this.closeDialog();
+		});
 	}
 
 	unBindEvents() {
@@ -204,9 +204,59 @@ class App {
 		$('.btn-details').unbind();
 	}
 
+	preSelectFilters(parent, arr) {
+		if (!arr.length) return;
+		if (arr.length === 1) {
+			console.log($(parent).find(`label:contains('${arr[0]}')`).find('> input'))
+			$(parent).find(`label:contains('${arr[0]}')`).find('> input').click();
+		} else {
+			return this.preSelectFilters($(parent).find(`label:contains('${arr.shift()}')`).parents('li')[0], arr)
+		}
+	}
+
+	openDialog() {
+		$('.intro-dialog').hide();
+		let shade = $('<div/>',{
+			html: '',
+			class: 'modal-shade'
+		});
+
+		let btnClose = $('<a/>',{
+			html: '&#215;',
+			class: 'close-modal',
+		});
+
+		let dialogContent = $('<div/>',{
+			html: $('.intro-dialog').html(),
+			class: 'modal-window'
+		});
+
+		dialogContent.prepend(btnClose);
+		
+		shade = $('<div/>',{
+			html: '',
+			class: 'modal-shade'
+		});
+
+		$('body').prepend(shade,dialogContent);
+		$('.modal-shade').fadeIn(350);
+		$('.modal-window').show(350);
+	}
+
+	closeDialog() {
+		$('.modal-shade').fadeOut(200,function() {
+			$('.modal-shade').remove();
+		});
+		$('.modal-window').fadeOut(200,function() {
+			$('.modal-window').remove();
+		});
+	}
+	
+
 	// Bootstrapper function
 	static start() {
 		const app = new App();
+		app.openDialog();
 		app.getFiles().then(data => {
 			const {files = []} = data;
 			$('.measurements').html(files.map(e => Templates.measurment(e)).join(''));
