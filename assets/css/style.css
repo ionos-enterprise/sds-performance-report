@@ -202,3 +202,18 @@ label {
 .close-modal:hover {
 	color: #111;
 }
+
+.do-not-show label {
+  display: inline-block;
+  line-height: 14px;
+  cursor: pointer;
+}
+
+.do-not-show input[type="checkbox"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.do-not-show button {
+  float: right;
+}

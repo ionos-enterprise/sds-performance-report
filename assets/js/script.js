@@ -1,5 +1,5 @@
 class App {
-	constructor () {
+	constructor() {
 		this.elements = [];
 		this.viewportSize = 1;
 	}
@@ -15,7 +15,7 @@ class App {
 		}
 		return '';
 	}
-	
+
 	// Get the unique Tags from the JSON file 
 	getTags(parentObject = {}) {
 		const childs = Util.hasChildern(parentObject);
@@ -27,7 +27,7 @@ class App {
 		}
 		return parentObject.map(element => element.tags);
 	}
-	
+
 	// Generate the HTML for unique tags 
 	getTagsHTML(parentObject = {}) {
 		const tags = Util.uniqueArray(Util.flatArray(this.getTags(parentObject)));
@@ -38,7 +38,7 @@ class App {
 
 	getFiles() {
 		return new Promise((resolve, reject) => {
-			$.getJSON('data/files.json', function(data) {
+			$.getJSON('data/files.json', function (data) {
 				resolve(data);
 			})
 		});
@@ -47,7 +47,7 @@ class App {
 	// Get the JSON data from the static file on the server
 	getData(name) {
 		return new Promise((resolve, reject) => {
-			$.getJSON(`data/${name}`, function(data) {
+			$.getJSON(`data/${name}`, function (data) {
 				resolve(data);
 			})
 		});
@@ -72,7 +72,7 @@ class App {
 			this.elements = [];
 		} else {
 			// Filter the elements based on the selected tags
-			this.elements = elements.map(x => ({value: x.value.filter(y => tags.indexOf(y.tags[0]) !== -1), pathArray: x.pathArray}))
+			this.elements = elements.map(x => ({ value: x.value.filter(y => tags.indexOf(y.tags[0]) !== -1), pathArray: x.pathArray }))
 		}
 		// Render all the selected elements and tags
 		this.renderElements();
@@ -90,11 +90,11 @@ class App {
 		return key;
 	}
 
-	updateMeasurment({file, title, details, preSelected, dictionary}) {
+	updateMeasurment({ file, title, details, preSelected, dictionary }) {
 		this.getData(file).then(data => {
 			const optionsHTML = this.getOptionsHTML(data);
 			const tagsHTML = this.getTagsHTML(data);
-		
+
 			$('.options').html(optionsHTML);
 			$('.tags').html(tagsHTML);
 			$('.viewport').html('');
@@ -111,18 +111,18 @@ class App {
 
 	bindEvents() {
 		// Event Listener for all the checkboxes
-		$('input[type="checkbox"]').click(e => {
+		$('input[type="checkbox"]:not(.control)').click(e => {
 			// Explore the currently selected checkbox 
-			const {type, value} = JSON.parse($(e.target).attr('data'));
+			const { type, value } = JSON.parse($(e.target).attr('data'));
 
 			// Select the child checkboxes
 			if (!Array.isArray(value)) {
 				$($(e.target).parents('li')[0]).find('input').prop('checked', $(e.target).prop('checked'));
 			}
-			
+
 			// Select the parent checkboxes
 			if ($(e.target).prop('checked')) {
-				$(e.target).parents('li').each(function(i, e) { 
+				$(e.target).parents('li').each(function (i, e) {
 					$(e).find('> label > input').prop('checked', true)
 				});
 			}
@@ -137,7 +137,7 @@ class App {
 				this.viewportSize += 0.2;
 				$('.viewport').css('transform', `scale(${this.viewportSize})`);
 				$('.zoom-result').html(`${Math.round(this.viewportSize * 100)}%`);
-			}			
+			}
 		});
 
 		// Decrease the size of Viewport
@@ -148,7 +148,7 @@ class App {
 				$('.zoom-result').html(`${Math.round(this.viewportSize * 100)}%`);
 			}
 		});
-		
+
 		// Print the Viewport if there is at least one chart
 		$('.btn-print').click(e => {
 			if ($(".viewport").html().trim()) {
@@ -180,12 +180,12 @@ class App {
 				$('.btn-details').html('Show Details');
 			}
 		});
-		
+
 		window.preSelects.forEach(e => {
 			this.preSelectFilters($('aside'), e); //['40 CPUs Intel(R) Xeon(R) Silver 4114', 'Dual Path', 'Multiple Disks']
 		});
 
-		$('.close-modal').click(() => {
+		$('.close-modal, .do-not-show button').click(() => {
 			this.closeDialog();
 		});
 
@@ -215,50 +215,56 @@ class App {
 	}
 
 	openDialog() {
+		const isDoNotShow = JSON.parse(localStorage.getItem('isDoNotShow'));
+		if (isDoNotShow) return;
+
 		$('.intro-dialog').hide();
-		let shade = $('<div/>',{
+		let shade = $('<div/>', {
 			html: '',
 			class: 'modal-shade'
 		});
 
-		let btnClose = $('<a/>',{
+		let btnClose = $('<a/>', {
 			html: '&#215;',
 			class: 'close-modal',
 		});
 
-		let dialogContent = $('<div/>',{
+		let dialogContent = $('<div/>', {
 			html: $('.intro-dialog').html(),
 			class: 'modal-window'
 		});
 
 		dialogContent.prepend(btnClose);
-		
-		shade = $('<div/>',{
+
+		shade = $('<div/>', {
 			html: '',
 			class: 'modal-shade'
 		});
 
-		$('body').prepend(shade,dialogContent);
+		$('body').prepend(shade, dialogContent);
 		$('.modal-shade').fadeIn(350);
 		$('.modal-window').show(350);
 	}
 
 	closeDialog() {
-		$('.modal-shade').fadeOut(200,function() {
+		const isDoNotShow = $('.do-not-show input[type="checkbox"]').prop('checked');
+		localStorage.setItem('isDoNotShow', JSON.stringify(isDoNotShow));
+
+		$('.modal-shade').fadeOut(200, function () {
 			$('.modal-shade').remove();
 		});
-		$('.modal-window').fadeOut(200,function() {
+		$('.modal-window').fadeOut(200, function () {
 			$('.modal-window').remove();
 		});
 	}
-	
+
 
 	// Bootstrapper function
 	static start() {
 		const app = new App();
 		app.openDialog();
 		app.getFiles().then(data => {
-			const {files = []} = data;
+			const { files = [] } = data;
 			$('.measurements').html(files.map(e => Templates.measurment(e)).join(''));
 			app.updateMeasurment(files[0]);
 		})
@@ -312,7 +318,7 @@ class Util {
 	static flatArray(array) {
 		return array.reduce((acc, val) => Array.isArray(val) ? acc.concat(Util.flatArray(val)) : acc.concat(val), []);
 	}
-	
+
 	// Flatten the single inner level and remove the duplicate elements from the array
 	static uniqueArray(array) {
 		return [...new Set([].concat(...array))];
@@ -325,7 +331,7 @@ class Util {
 		}
 		return false;
 	}
-	
+
 	// Get the Inner object based on the path array
 	static getInnerElement(parentObject, elementArr) {
 		return elementArr.reduce((accessObj, element) =>
@@ -333,6 +339,6 @@ class Util {
 	}
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 	App.start();
 });
