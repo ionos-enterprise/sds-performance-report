@@ -1,0 +1,222 @@
+{
+    "40 Intel Xeon Silver 4114, ConnectX-4 100Gb/s": {
+        "Dual Path": {
+            "Multiple Disks": [
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-dual_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-dual_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-dual_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-dual_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-dual_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-dual_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ],
+            "Multiple Jobs": [
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-dual_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-dual_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-dual_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-dual_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-dual_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-dual_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ]
+        },
+        "Single Path": {
+            "Multiple Disks": [
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-single_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-single_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-single_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-single_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-single_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x4-single_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ],
+            "Multiple Jobs": [
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-single_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-single_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-single_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-single_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-single_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x4-single_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ]            
+        }
+    }, 
+    "64 AMD Opteron 6282, ConnectX VPI 40Gb/s": {
+        "Dual Path": {
+            "Multiple Disks": [
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-dual_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-dual_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-dual_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-dual_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-dual_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-dual_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ],
+            "Multiple Jobs": [
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-dual_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-dual_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-dual_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-dual_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-dual_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-dual_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ]
+        },
+        "Single Path": {
+            "Multiple Disks": [
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-single_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-single_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-single_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-single_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-single_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/disks-x2-single_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ],
+            "Multiple Jobs": [
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-single_write-iops.svg",
+                    "tags": ["Write IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-single_read-iops.svg",
+                    "tags": ["Read IOPS"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-single_write-bw.svg",
+                    "tags": ["Write Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-single_read-bw.svg",
+                    "tags": ["Read Bandwidth"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-single_write-lat.svg",
+                    "tags": ["Mean Write Latency"]
+                },
+                {
+                    "url": "2019-06-IBNBDv4/jobs-x2-single_read-lat.svg",
+                    "tags": ["Mean Read Latency"]
+                }
+            ]            
+        }
+    }
+}
