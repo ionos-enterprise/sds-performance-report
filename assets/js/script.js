@@ -90,7 +90,9 @@ class App {
 		return key;
 	}
 
-	updateMeasurment({ file, title, details, preSelected, dictionary }) {
+	updateMeasurment(file) {
+		const { title, details, preSelected, dictionary } = window.files.find(e => e.file === file);
+
 		this.getData(file).then(data => {
 			const optionsHTML = this.getOptionsHTML(data);
 			const tagsHTML = this.getTagsHTML(data);
@@ -157,7 +159,7 @@ class App {
 		});
 
 		$('.measurements').change(e => {
-			this.updateMeasurment(JSON.parse($('.measurements').val()));
+			this.updateMeasurment($('.measurements').val());
 		})
 
 		$('.btn-sidebar').click(e => {
@@ -207,7 +209,6 @@ class App {
 	preSelectFilters(parent, arr) {
 		if (!arr.length) return;
 		if (arr.length === 1) {
-			console.log($(parent).find(`label:contains('${arr[0]}')`).find('> input'))
 			$(parent).find(`label:contains('${arr[0]}')`).find('> input').click();
 		} else {
 			return this.preSelectFilters($(parent).find(`label:contains('${arr.shift()}')`).parents('li')[0], arr)
@@ -265,8 +266,10 @@ class App {
 		app.openDialog();
 		app.getFiles().then(data => {
 			const { files = [] } = data;
+			window.files = files;
+
 			$('.measurements').html(files.map(e => Templates.measurment(e)).join(''));
-			app.updateMeasurment(files[0]);
+			app.updateMeasurment(files[0].file);
 		})
 	}
 }
@@ -307,7 +310,7 @@ class Templates {
 	}
 
 	static measurment(element) {
-		return `<option value='${JSON.stringify(element)}'>${element.title}</option>`;
+		return `<option value='${element.file}'>${element.title}</option>`;
 	}
 }
 
