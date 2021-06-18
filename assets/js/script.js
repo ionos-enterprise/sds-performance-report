@@ -102,7 +102,7 @@ class App {
 			$('.viewport').html('');
 
 			window.details = details;
-			window.preSelects = preSelected;
+			window.preSelects = JSON.parse(JSON.stringify(preSelected));
 			window.dictionary = dictionary;
 
 			this.unBindEvents()
