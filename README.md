@@ -1,10 +1,15 @@
 ### Test page on a local machine
 ```
-Start http server Inside directory the repo is checked out into:
+Start http server inside directory the repo is checked out into:
 $python3 -m http.server 8080
 then open http://127.0.0.1:8080 in your browser
-```
 
+In order to start http server on a particular interface of
+a remote machine use
+# python3 -m http.server 8080 -b <IP>
+Open http://<IP>:8080 in the browser
+
+```
 
 ### The following files must be created:
 
